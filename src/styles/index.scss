@@ -1,0 +1,8 @@
+@forward 'tokens'; // toutes les variables globales (couleurs, typo, spacing…)
+@forward 'themes'; // variantes dark/light 
+@forward 'generals';
+@forward 'typography'; // hiérarchie et rythme vertical
+@forward 'layout';
+@forward 'elements'; // Boutons, etc.
+@forward 'utilities'; // helpers de mise en page, flex, paddings, etc.
+@forward 'decoration'; // Éléments décoratifs 

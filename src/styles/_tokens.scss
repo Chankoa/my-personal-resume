@@ -1,0 +1,144 @@
+/* =========================================================
+   TOKENS — FONDATIONS DU DESIGN SYSTEM
+   Auteur : Chandra Josephus
+   Projet : CV React
+   ---------------------------------------------------------
+   Rôle : définir les valeurs de base (couleurs, typo,
+   tailles, spacing, rayons, ombres, transitions)
+========================================================= */
+
+/* ---------------------------
+   1. Couleurs principales
+---------------------------- */
+:root {
+  /* Palette identitaire */
+  --color-flame: #ff4d00;         /* accent principal (orange flamme) */
+  --color-saffron: #ff6a1a;       /* jaune chaud / ton secondaire */
+  --color-teal: #00bfa5;          /* turquoise / contraste frais */
+  --color-teal-hover: #1de9b6;
+  
+
+  /* Neutres */
+  --color-bg: #fdfcf7;            /* fond clair */
+  --color-bg-alt: #ffffff;
+  --color-text: #222222;
+  --color-text-btn: #fff;
+  --color-text-secondary: #555555;
+  --color-muted: #6b6b6b;
+  --color-border: #eaeaea;
+  --color-card: #ffffff;
+
+ /* Équivalents dark (pour `_themes.scss`) */
+  --color-bg-dark: #181818;
+  --color-card-dark: #151515;
+  --color-text-dark: #fdfcf7;
+  --color-muted-dark: #888888;
+  --color-border-dark: #333333;
+}
+
+/* ---------------------------
+   2. Typographie
+---------------------------- */
+:root {
+  /* Familles */
+  --font-main: "Roboto", system-ui, sans-serif;
+  --font-headings: "Roboto", system-ui, sans-serif;
+
+  /* Hiérarchie de graisse */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* Corps de base et rythme */
+  --fs-base: 16px;
+  --lh-base: 1.6;
+}
+
+/* ---------------------------
+   3. Breakpoints
+---------------------------- */
+
+$mq-sm: 576px;    /* Bootstrap Small */
+$mq-md: 768px;    /* Bootstrap/Tailwind Medium */
+$mq-lg: 992px;    /* Bootstrap Large */
+$mq-xl: 1200px;   /* Bootstrap XL */
+$mq-xxl: 1400px;  /* Bootstrap XXL */
+$mq-2xl: 1536px;  /* Tailwind 2XL (optionnel) */
+
+/* ---------------------------
+   4. Échelle typographique fluide (clamp)
+---------------------------- */
+:root {
+  /* h1 : 26 → 38px */
+  /* --fs-h1: clamp(1.5rem, 4vw + 1rem, 2.25rem); */ /* 24–36px environ */
+  --fs-h1: clamp(1.625rem, 4.5vw + 1rem, 2.375rem); 
+
+  /* h2 : 20 → 30px */
+  --fs-h2: clamp(1.25rem, 3vw + 0.9rem, 1.875rem);
+
+  /* h3 : 18 → 26px */
+  --fs-h3: clamp(1.125rem, 2.4vw + 0.8rem, 1.625rem);
+
+  /* h4 : 16 → 22px */
+  --fs-h4: clamp(1rem, 2vw + 0.7rem, 1.375rem);
+
+  /* h5 : 15 → 20px */
+  --fs-h5: clamp(0.9375rem, 1.5vw + 0.6rem, 1.25rem);
+
+  /* h6 : 14 → 18px */
+  --fs-h6: clamp(0.875rem, 1vw + 0.5rem, 1.125rem);
+
+  /* texte normal : 15–16px */
+  --fs-body: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
+
+  /* petit texte : 13–14px */
+  --fs-small: clamp(0.8125rem, 0.3vw + 0.7rem, 0.875rem);
+}
+
+
+/* ---------------------------
+   5. Spacing system (8px grid)
+---------------------------- */
+:root {
+  --space-xxs: 0.25rem;  /* 4px */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-xxl: 3rem;     /* 48px */
+}
+
+/* ---------------------------
+   6. Rayons, ombres, bordures
+---------------------------- */
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------------------------
+   7. Transitions & vitesse
+---------------------------- */
+:root {
+  --transition-fast: 0.15s ease-in-out;
+  --transition: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* ---------------------------
+   8. Divers
+---------------------------- */
+:root {
+  /* switcher specifics (utilisées par le module local si besoin) */
+  --switch-width: 60px;
+  --switch-height: 30px;
+  --switch-circle-size: 24px;
+  }

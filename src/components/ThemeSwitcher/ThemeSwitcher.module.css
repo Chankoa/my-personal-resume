@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* ThemeSwitcher.module.scss */
+:root {
+  /* fallback local values if tokens are missing */
+  --sw-w: var(--switch-width, 60px);
+  --sw-h: var(--switch-height, 30px);
+  --sw-circle: var(--switch-circle-size, 24px);
+}
+
+/* wrapper (button pour accessibilité) */
+.switch {
+  --w: var(--sw-w);
+  --h: var(--sw-h);
+  width: var(--w);
+  height: var(--h);
+  border-radius: calc(var(--h) / 2);
+  background-color: var(--switch-bg);
+  border: 1px solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* icon (fa) */
+.icon {
+  position: absolute;
+  left: 8px;
+  font-size: 1rem;
+  color: var(--color-accent);
+  transition: color var(--transition), transform var(--transition);
+  pointer-events: none;
+}
+
+/* cercle blanc */
+.switchCircle {
+  width: var(--sw-circle);
+  height: var(--sw-circle);
+  border-radius: 50%;
+  background-color: var(--color-accent); /* Orange si thème light */
+  /* box-shadow: 0 2px 6px rgba(0,0,0,0.08); */
+  transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
+  transform: translateX(0);
+}
+
+/* position du cercle lorsque le thème est actif (dark) */
+.circleMove {
+  transform: translateX(calc(var(--w) - var(--sw-circle) - 2px));
+  background-color: var(--color-accent); /* automatiser avec le thème de couleur ? */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* variations visuelles quand le switch est en dark */
+.switchDark {
+  background-color: var(--switch-bg);
+  border-color: var(--switch-bg);
+}
+
+.switchDark .icon {
+  color: var(--color-accent);
+  transform: rotate(360deg);
+}/*# sourceMappingURL=ThemeSwitcher.module.css.map */

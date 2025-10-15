@@ -1,0 +1,30 @@
+@use 'tokens';
+
+/* -----------------------------------
+        3 - ELEMENTS
+------------------------------------ */
+
+/* Boutons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border: 1px solid var(--color-border); 
+  border-radius: var(--radius-sm);       
+  background: var(--color-accent);        // Dépend du thème Dark / Light
+  color: var(--color-text-btn);          
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition); // corrigé
+  font-family: var(--font-main);         // corrigé
+  font-weight: 500;
+  
+
+  &:hover {
+    color: var(--color-accent);          
+    background: var(--color-bg);         
+    border-color: var(--color-accent);  
+    text-decoration: none;
+  }
+}
+

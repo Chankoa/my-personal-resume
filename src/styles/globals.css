@@ -1,0 +1,953 @@
+@charset "UTF-8";
+/* =========================================================
+   TOKENS — FONDATIONS DU DESIGN SYSTEM
+   Auteur : Chandra Josephus
+   Projet : CV React
+   ---------------------------------------------------------
+   Rôle : définir les valeurs de base (couleurs, typo,
+   tailles, spacing, rayons, ombres, transitions)
+========================================================= */
+/* ---------------------------
+   1. Couleurs principales
+---------------------------- */
+:root {
+  /* Palette identitaire */
+  --color-flame: #ff4d00; /* accent principal (orange flamme) */
+  --color-saffron: #ff6a1a; /* jaune chaud / ton secondaire */
+  --color-teal: #00bfa5; /* turquoise / contraste frais */
+  --color-teal-hover: #1de9b6;
+  /* Neutres */
+  --color-bg: #fdfcf7; /* fond clair */
+  --color-bg-alt: #ffffff;
+  --color-text: #222222;
+  --color-text-btn: #fff;
+  --color-text-secondary: #555555;
+  --color-muted: #6b6b6b;
+  --color-border: #eaeaea;
+  --color-card: #ffffff;
+  /* Équivalents dark (pour `_themes.scss`) */
+  --color-bg-dark: #181818;
+  --color-card-dark: #151515;
+  --color-text-dark: #fdfcf7;
+  --color-muted-dark: #888888;
+  --color-border-dark: #333333;
+}
+
+/* ---------------------------
+   2. Typographie
+---------------------------- */
+:root {
+  /* Familles */
+  --font-main: "Roboto", system-ui, sans-serif;
+  --font-headings: "Roboto", system-ui, sans-serif;
+  /* Hiérarchie de graisse */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+  /* Corps de base et rythme */
+  --fs-base: 16px;
+  --lh-base: 1.6;
+}
+
+/* ---------------------------
+   3. Breakpoints
+---------------------------- */
+:root {
+  /* Bootstrap Small */
+  /* Bootstrap/Tailwind Medium */
+  /* Bootstrap Large */
+  /* Bootstrap XL */
+  /* Bootstrap XXL */
+  /* Tailwind 2XL (optionnel) */
+}
+
+/* ---------------------------
+   4. Échelle typographique fluide (clamp)
+---------------------------- */
+:root {
+  /* h1 : 26 → 38px */
+  /* --fs-h1: clamp(1.5rem, 4vw + 1rem, 2.25rem); */ /* 24–36px environ */
+  --fs-h1: clamp(1.625rem, 4.5vw + 1rem, 2.375rem);
+  /* h2 : 20 → 30px */
+  --fs-h2: clamp(1.25rem, 3vw + 0.9rem, 1.875rem);
+  /* h3 : 18 → 26px */
+  --fs-h3: clamp(1.125rem, 2.4vw + 0.8rem, 1.625rem);
+  /* h4 : 16 → 22px */
+  --fs-h4: clamp(1rem, 2vw + 0.7rem, 1.375rem);
+  /* h5 : 15 → 20px */
+  --fs-h5: clamp(0.9375rem, 1.5vw + 0.6rem, 1.25rem);
+  /* h6 : 14 → 18px */
+  --fs-h6: clamp(0.875rem, 1vw + 0.5rem, 1.125rem);
+  /* texte normal : 15–16px */
+  --fs-body: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
+  /* petit texte : 13–14px */
+  --fs-small: clamp(0.8125rem, 0.3vw + 0.7rem, 0.875rem);
+}
+
+/* ---------------------------
+   5. Spacing system (8px grid)
+---------------------------- */
+:root {
+  --space-xxs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 0.75rem; /* 12px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-xxl: 3rem; /* 48px */
+}
+
+/* ---------------------------
+   6. Rayons, ombres, bordures
+---------------------------- */
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------------------------
+   7. Transitions & vitesse
+---------------------------- */
+:root {
+  --transition-fast: 0.15s ease-in-out;
+  --transition: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* ---------------------------
+   8. Divers
+---------------------------- */
+:root {
+  /* switcher specifics (utilisées par le module local si besoin) */
+  --switch-width: 60px;
+  --switch-height: 30px;
+  --switch-circle-size: 24px;
+}
+
+/* =========================================================
+   THEMES — Gestion du mode clair / sombre
+   ---------------------------------------------------------
+   Dépend de : _tokens.scss
+   Rôle : applique les variantes de couleurs en fonction
+          du thème sélectionné.
+  Check date : 13.10.25
+========================================================= */
+/* -----------------------------------
+   Thème clair (par défaut)
+------------------------------------ */
+[data-theme=light],
+.light {
+  /* Identité : Orange quand le thème est light */
+  --color-accent: var(--color-flame);
+  --color-accent-hover: var(--color-saffron);
+  --switch-bg: var(--color-bg);
+  color-scheme: light;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* -----------------------------------
+   Thème sombre
+------------------------------------ */
+[data-theme=dark],
+.dark {
+  --color-bg: var(--color-bg-dark);
+  --color-card: var(--color-card-dark);
+  --color-text: var(--color-text-dark);
+  --color-muted: var(--color-muted-dark);
+  --color-border: var(--color-border-dark);
+  /* Identité : Teal quand le thème est Dark */
+  --color-accent: var(--color-teal);
+  --color-accent-hover: var(--color-teal-hover);
+  --switch-bg: var(--color-bg-dark);
+  color-scheme: dark;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* -----------------------------------
+   Transition de thème (fluidité visuelle)
+------------------------------------ */
+html {
+  transition: background-color var(--transition-slow), color var(--transition-slow), border-color var(--transition-slow);
+}
+
+/* -----------------------------------
+   Classes d’arrière-plan et cartes
+------------------------------------ */
+.bg-surface {
+  background-color: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.bg-muted {
+  background-color: var(--color-border);
+}
+
+/**
+ * @projet : MY PERSONAL RESUME
+ * @what : projet de mise en ligne de mon cv, en utilisant Github / Netlify et React
+ * @date : 14.10.2025
+ * @latest works : Optimisation de l'organisation des styles avec Sass
+ */
+/* -----------------------------------
+            0 - RESET 
+------------------------------------ */
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* =========================================================
+   TYPOGRAPHY — Rythme vertical & hiérarchie globale
+   ---------------------------------------------------------
+   Dépend de : _tokens.scss
+   Rôle : définit la taille, graisse, marges et interlignes
+           des titres et paragraphes.
+========================================================= */
+/* ---------------------------
+   1. Base du document
+---------------------------- */
+html {
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background: var(--color-bg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------------------
+   2. Paragraphe & texte courant
+---------------------------- */
+p {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-base);
+  /* margin-bottom: var(--space-md); */
+  max-width: 65ch; /* limite de lisibilité */
+}
+
+small,
+.text-small {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+
+/* ---------------------------
+   3. Titres hiérarchiques (h1–h6)
+---------------------------- */
+/* Les marges verticales sont calculées sur l’échelle 8px via les tokens */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+  color: var(--color-text);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+
+/* Taille fluide basée sur clamp() */
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-black);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+}
+
+h5 {
+  font-size: var(--fs-h5);
+}
+
+h6 {
+  font-size: var(--fs-h6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------------------------
+   4. Liens
+---------------------------- */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ---------------------------
+   5. Listes
+---------------------------- */
+ul, ol {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.5;
+}
+
+/* ---------------------------
+   6. Text utilities (globaux)
+---------------------------- */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.is-italic {
+  font-style: italic;
+}
+
+.is-bold {
+  font-weight: var(--fw-bold);
+}
+
+.is-muted {
+  color: var(--color-muted);
+}
+
+/* Accent color classes (identité visuelle) */
+.is-teal-color {
+  color: var(--color-teal);
+}
+
+.is-flame-color {
+  color: var(--color-flame);
+}
+
+.is-saffron-color {
+  color: var(--color-saffron);
+}
+
+/* ---------------------------
+   7. Rythme vertical : sections
+---------------------------- */
+section,
+article {
+  margin-bottom: var(--space-xl);
+}
+
+/* ---------------------------
+   8. Figures Images et citations
+---------------------------- */
+blockquote {
+  font-size: var(--fs-h5);
+  font-style: italic;
+  color: var(--color-muted);
+  border-left: 4px solid var(--color-teal);
+  padding-left: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+figure {
+  margin: var(--space-lg) 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  margin-top: var(--space-xs);
+}
+
+/* -----------------------------------
+        2 - LAYOUT
+------------------------------------ */
+.cv-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .cv-layout {
+    display: grid;
+    gap: 1rem;
+    grid-template: "header header" "sidebar content" "sidebar content";
+  }
+}
+@media (min-width: 992px) {
+  .cv-layout {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "header header header" "sidebar content content" "sidebar content content";
+  }
+}
+
+/* ------- A REFACTORER : <SectionTitle/> ? --------- */
+/* Header */
+.cv-header {
+  grid-area: header; /* en haut sur les 2 colonnes du template */
+  min-height: 30vh;
+}
+
+@media (min-width: 768px) {
+  .cv-header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .cv-header {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+/* HEADER : <SectionTitle> */
+/* Teaser */
+.teaser {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xxl);
+}
+
+.teaser-summary {
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+}
+
+/* Nom et rôle */
+.header-title {
+  padding-bottom: var(--space-xl);
+}
+
+/*.name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: .15rem;
+}
+.role {
+    font-weight: 600;
+    color: var(--color-muted);
+    font-size: .95rem;
+    margin-bottom: 1rem;
+} */
+/* Contact */
+.contact a {
+  display: block;
+  padding: var(--space-xs);
+  transition: var(--transition);
+}
+
+.contact a:hover {
+  color: var(--color-text-btn);
+  background-color: var(--color-accent);
+  transition: var(--transition);
+}
+
+/* Sidebar (colonne gauche) */
+.sidebar {
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    grid-area: sidebar;
+    position: sticky;
+    top: 2rem;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+/* Main (colonne droite) */
+.main-content {
+  grid-area: content;
+  padding-top: var(--space-md);
+  /*background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);*/
+  border-top: 1px solid var(--color-border);
+}
+
+/* Expériences (section) */
+@media (min-width: 992px) {
+  .experience {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Titres de sections */
+.section-title {
+  font-size: var(--fs-h4);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+/* Skills */
+@media (min-width: 992px) {
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .skills > h2 {
+    grid-column: 1/4;
+  }
+}
+/* -----------------------------------
+        X - FUTURS COMPOSANTS
+------------------------------------ */
+/* PILLS, SKILLS, ETC */
+.pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+  color: var(--color-muted);
+  background: var(--color-card);
+  font-family: var(--font-main);
+}
+
+/* EXPERIENCES ET MAIN */
+.experience {
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-xl);
+}
+
+.exp-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.exp-title,
+.skill-title {
+  font-size: var(--fs-h6);
+  font-weight: var(--fw-regular);
+  margin-top: var(--space-md);
+}
+
+.exp-meta,
+.skill-meta {
+  font-weight: var(--fw-light); /* 300 */
+  color: var(--color-muted);
+}
+
+.exp-list {
+  margin-top: var(--space-md);
+  /*padding-left: 1rem;*/
+  font-size: 0.92rem; /* empirique */
+  /*font-family: var(--font-main);*/
+}
+
+.exp-list li {
+  margin-bottom: 0.25rem;
+}
+
+/* Footer small */
+.meta-small {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 1rem;
+  font-family: var(--font-main);
+}
+
+/* -----------------------------------
+        3 - ELEMENTS
+------------------------------------ */
+/* Boutons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-text-btn);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  font-family: var(--font-main);
+  font-weight: 500;
+}
+.btn:hover {
+  color: var(--color-accent);
+  background: var(--color-bg);
+  border-color: var(--color-accent);
+  text-decoration: none;
+}
+
+/* =========================================================
+   4 - UTILITIES — Classes globales de layout & helpers visuels
+   ---------------------------------------------------------
+   Dépend de : _tokens.scss
+   Utilisé dans : components, modules et pages React
+========================================================= */
+/* ---------------------------
+   1. Display & Layout
+---------------------------- */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.inline-grid {
+  display: inline-grid;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Responsive display helpers */
+@media (min-width: 768px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+/* ---------------------------
+   2. Flex utilities
+---------------------------- */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+/* ---------------------------
+   3. Width & Height
+---------------------------- */
+.w100 {
+  width: 100%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.h100 {
+  height: 100vh;
+}
+
+.h75 {
+  height: 75vh;
+}
+
+/* ---------------------------
+   4. Spacing (margin & padding)
+---------------------------- */
+/* Système basé sur la grille 8px (voir _tokens.scss) */
+.padded {
+  padding: var(--space-md);
+}
+
+.unpadded {
+  padding: 0;
+}
+
+.padded-sm {
+  padding: var(--space-sm);
+}
+
+.padded-lg {
+  padding: var(--space-lg);
+}
+
+.mt {
+  margin-top: var(--space-md);
+}
+
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+
+.mb {
+  margin-bottom: var(--space-md);
+}
+
+.mb-sm {
+  margin-bottom: var(--space-sm);
+}
+
+.mb-lg {
+  margin-bottom: var(--space-lg);
+}
+
+.ml-xs {
+  margin-left: var(--space-xxs);
+}
+
+.gap-xs {
+  gap: var(--space-xs);
+}
+
+.gap-sm {
+  gap: var(--space-sm);
+}
+
+.gap-md {
+  gap: var(--space-md);
+}
+
+.gap-lg {
+  gap: var(--space-lg);
+}
+
+/* ---------------------------
+   5. Borders & Radius
+---------------------------- */
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+.border {
+  border: 1px solid var(--color-border);
+}
+
+.border-top {
+  border-top: 1px solid var(--color-border);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.border-left {
+  border-left: 1px solid var(--color-border);
+}
+
+.border-right {
+  border-right: 1px solid var(--color-border);
+}
+
+/* ---------------------------
+   6. Shadows
+---------------------------- */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---------------------------
+   7. Text utilities
+---------------------------- */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.is-italic {
+  font-style: italic;
+}
+
+.is-bold {
+  font-weight: var(--fw-bold);
+}
+
+.is-light {
+  font-weight: var(--fw-light);
+}
+
+.is-muted {
+  color: var(--color-muted);
+}
+
+/* ---------------------------
+   8. Containers & Layout grid
+---------------------------- */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+/* ---------------------------
+   9. Decorative helpers
+---------------------------- */
+.hr {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin: var(--space-md) 0;
+  border-radius: 2px;
+}
+
+/* ---------------------------
+   10. Listes
+---------------------------- */
+.undotted-li {
+  list-style-type: none;
+}
+
+/* -----------------------------------
+        5 - DECORATION
+------------------------------------ */
+/* DOTS */
+.big-dot {
+  font-size: 48px; /* empirique */
+  line-height: 0;
+  color: var(--color-accent); /* Fonction du thème */
+  transition: var(--transition-fast);
+}
+
+/* COULEURS (texte) */
+/* Flame */
+.is-flame-color {
+  color: var(--color-flame);
+}
+
+/* Teal */
+.is-teal-color {
+  color: var(--color-teal);
+}/*# sourceMappingURL=globals.css.map */

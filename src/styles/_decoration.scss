@@ -1,0 +1,26 @@
+@use 'tokens';
+/* -----------------------------------
+        5 - DECORATION
+------------------------------------ */
+
+/* DOTS */
+.big-dot {
+  font-size: tokens.$font-size-xxl; /* uses design token */
+  line-height: 0;
+  color: var(--color-accent); /* Fonction du thème */
+  transition: var(--transition-fast);
+}
+
+/* COULEURS (texte) */
+
+/* Flame */
+.is-flame-color {
+    color: var(--color-flame);
+}
+
+/* Teal */
+.is-teal-color {
+    color: var(--color-teal);
+}
+
+

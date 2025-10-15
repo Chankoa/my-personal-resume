@@ -1,0 +1,22 @@
+/* Conteneur principal */
+.topbar {
+  height: 64px;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-card);
+}
+
+.download {
+  color: #fff;
+  background: var(--color-flame);
+  border: 1px solid var(--color-flame);
+  font-weight: 700;
+}
+.download:hover {
+  background: var(--color-saffron);
+  border-color: var(--color-saffron);
+  color: #fff;
+}/*# sourceMappingURL=Topbar.module.css.map */
