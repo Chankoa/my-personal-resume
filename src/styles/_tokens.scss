@@ -2,6 +2,7 @@
    TOKENS — FONDATIONS DU DESIGN SYSTEM
    Auteur : Chandra Josephus
    Projet : CV React
+   Date : 15.12.2025
    ---------------------------------------------------------
    Rôle : définir les valeurs de base (couleurs, typo,
    tailles, spacing, rayons, ombres, transitions)
@@ -34,12 +35,11 @@
   --color-text-dark: #fdfcf7;
   --color-muted-dark: #888888;
   --color-border-dark: #333333;
-}
+
 
 /* ---------------------------
    2. Typographie
 ---------------------------- */
-:root {
   /* Familles */
   --font-main: "Roboto", system-ui, sans-serif;
   --font-headings: "Roboto", system-ui, sans-serif;
@@ -54,7 +54,7 @@
   /* Corps de base et rythme */
   --fs-base: 16px;
   --lh-base: 1.6;
-}
+
 
 /* ---------------------------
    3. Breakpoints
@@ -70,7 +70,7 @@ $mq-2xl: 1536px;  /* Tailwind 2XL (optionnel) */
 /* ---------------------------
    4. Échelle typographique fluide (clamp)
 ---------------------------- */
-:root {
+
   /* h1 : 26 → 38px */
   /* --fs-h1: clamp(1.5rem, 4vw + 1rem, 2.25rem); */ /* 24–36px environ */
   --fs-h1: clamp(1.625rem, 4.5vw + 1rem, 2.375rem); 
@@ -95,13 +95,12 @@ $mq-2xl: 1536px;  /* Tailwind 2XL (optionnel) */
 
   /* petit texte : 13–14px */
   --fs-small: clamp(0.8125rem, 0.3vw + 0.7rem, 0.875rem);
-}
+
 
 
 /* ---------------------------
    5. Spacing system (8px grid)
 ---------------------------- */
-:root {
   --space-xxs: 0.25rem;  /* 4px */
   --space-xs: 0.5rem;    /* 8px */
   --space-sm: 0.75rem;   /* 12px */
@@ -109,12 +108,12 @@ $mq-2xl: 1536px;  /* Tailwind 2XL (optionnel) */
   --space-lg: 1.5rem;    /* 24px */
   --space-xl: 2rem;      /* 32px */
   --space-xxl: 3rem;     /* 48px */
-}
+
 
 /* ---------------------------
    6. Rayons, ombres, bordures
 ---------------------------- */
-:root {
+
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
@@ -122,21 +121,21 @@ $mq-2xl: 1536px;  /* Tailwind 2XL (optionnel) */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
+
 
 /* ---------------------------
    7. Transitions & vitesse
 ---------------------------- */
-:root {
+
   --transition-fast: 0.15s ease-in-out;
   --transition: 0.3s ease-in-out;
   --transition-slow: 0.5s ease-in-out;
-}
+
 
 /* ---------------------------
    8. Divers
 ---------------------------- */
-:root {
+
   /* switcher specifics (utilisées par le module local si besoin) */
   --switch-width: 60px;
   --switch-height: 30px;

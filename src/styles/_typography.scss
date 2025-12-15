@@ -1,5 +1,5 @@
 
-@use 'tokens';
+@use './tokens';
 /* =========================================================
    TYPOGRAPHY — Rythme vertical & hiérarchie globale
    ---------------------------------------------------------
@@ -20,11 +20,6 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
-  padding: 0;
 }
 
 /* ---------------------------
@@ -100,7 +95,7 @@ a:hover {
    5. Listes
 ---------------------------- */
 ul, ol {
-  padding-left: var(--space-lg);
+  padding-left: var(--space-sm);
   margin-bottom: var(--space-md);
 }
 li {

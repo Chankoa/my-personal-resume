@@ -36,7 +36,6 @@ export default function ThemeSwitcher() {
       aria-pressed={isDark}
       aria-label={`Activer le mode ${isDark ? "clair" : "sombre"}`}
     >
-      <i className={`fa-solid ${isDark ? "fa-sun" : "fa-moon"} ${styles.icon}`}></i>
       <div className={`${styles.switchCircle} ${isDark ? styles.circleMove : ""}`}></div>
     </button>
   );

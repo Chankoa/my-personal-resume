@@ -3,23 +3,20 @@ import styles from "./Topbar.module.scss";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 export default function Topbar() {
-
   return (
     <div className={`${styles.topbar} padded`} role="navigation" aria-label="Actions CV">
-      {/* Bloc d’actions caché sur mobile (facultatif) */}
+      {/* Bloc d'actions caché sur mobile (facultatif) */}
       <div className="hidden">
-        <a
+        <button
+          type="button"
           className="btn"
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.print();
-          }}
-          title="Imprimer / Télécharger en PDF"
+          onClick={() => window.print()}
+          title="Imprimer ou télécharger en PDF"
+          aria-label="Imprimer ou télécharger le CV en PDF"
         >
-          <i className="fa-solid fa-print"></i>
+          <i className="fa-solid fa-print" aria-hidden="true"></i>
           <strong>Imprimer</strong>
-        </a>
+        </button>
       </div>
 
       {/* Titre CV */}

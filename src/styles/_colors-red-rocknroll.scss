@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Rouge "Rock'n'Roll" — Color Scale
+   Base color: #D64045
+   Usage: accents, CTA, highlights, identity color
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Light shades
+   → Backgrounds, subtle highlights, cards, soft UI elements
+   -------------------------------------------------------------------------- */
+$red-50:  #FBECEC; // très léger, fond de section
+$red-100: #F5C9CB; // highlight doux, cartes
+$red-200: #EE9EA1; // badges discrets, disabled
+
+
+/* --------------------------------------------------------------------------
+   Core shades
+   → Main UI interactions (buttons, links, accents)
+   -------------------------------------------------------------------------- */
+$red-300: #E46F73; // hover léger
+$red-400: #DB4E53; // hover principal
+$red-500: #D64045; // PRIMARY — Rouge Rock'n'Roll
+
+
+/* --------------------------------------------------------------------------
+   Dark shades
+   → Textes forts, contrastes, dark mode
+   -------------------------------------------------------------------------- */
+$red-600: #B7373B; // active / focus
+$red-700: #8F2B2E; // titres accentués
+$red-800: #661F21; // texte fort sur fond clair
+$red-900: #3B1214; // dark mode / contraste maximal
+
+
+/* ==========================================================================
+   Semantic tokens
+   → À privilégier dans les composants (évite l'usage direct des teintes)
+   ========================================================================== */
+
+$color-primary:        $red-500;
+$color-primary-hover:  $red-400;
+$color-primary-active: $red-600;
+
+$color-accent-strong:  $red-700;
+$color-text-accent:    $red-800;
+
+$color-bg-soft:        $red-50;
+$color-bg-highlight:   $red-100;
+
+
+/* ==========================================================================
+   Optional export as CSS variables (si besoin)
+   → utile pour React, Astro, theming ou dark mode
+   ========================================================================== */
+
+:root {
+  --red-50:  #{$red-50};
+  --red-100: #{$red-100};
+  --red-200: #{$red-200};
+  --red-300: #{$red-300};
+  --red-400: #{$red-400};
+  --red-500: #{$red-500};
+  --red-600: #{$red-600};
+  --red-700: #{$red-700};
+  --red-800: #{$red-800};
+  --red-900: #{$red-900};
+
+  --color-primary:        #{$color-primary};
+  --color-primary-hover:  #{$color-primary-hover};
+  --color-primary-active: #{$color-primary-active};
+}

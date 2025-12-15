@@ -1,11 +1,10 @@
-@use 'tokens';
 /* -----------------------------------
         5 - DECORATION
 ------------------------------------ */
 
 /* DOTS */
 .big-dot {
-  font-size: tokens.$font-size-xxl; /* uses design token */
+  font-size: var(--fs-h1);
   line-height: 0;
   color: var(--color-accent); /* Fonction du thème */
   transition: var(--transition-fast);
